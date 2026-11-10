@@ -229,3 +229,6 @@ flake8 ./src --statistics --show-source --count
 ## Author
 
 - [@trekhleb](https://trekhleb.dev)
+
+## Team Maintenance
+Collaboratively maintained by COMP 354 Team.
