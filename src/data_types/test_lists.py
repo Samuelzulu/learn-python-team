@@ -336,3 +336,23 @@ def test_nested_list_comprehensions():
         (3, 7, 11),
         (4, 8, 12),
     ]
+    
+    def test_list_comprehension_and_filtering():
+        """Demonstrate list comprehension with conditional filtering."""
+        numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        evens = [n for n in numbers if n % 2 == 0]
+        squares = [n ** 2 for n in evens]
+        
+        assert evens == [2, 4, 6, 8, 10]
+        assert squares == [4, 16, 36, 64, 100]
+        
+        def test_list_custom_sorting_and_slicing():
+            """Demonstrate sorting with a key function and step slicing."""
+            fruits = ["banana", "pie", "apple", "Kiwi"]
+            fruits.sort(key=len)
+            assert fruits == ["pie", "kiwi", "apple", "banana"]
+            
+            sample = list(range(10))
+            assert sample[::2] == [0, 2, 4, 6, 8]
+            assert sample[::-1] == [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+            
