@@ -63,6 +63,7 @@ def test_dictionary():
     assert dictionary_via_constructor['sape'] == 4139
     assert dictionary_via_constructor['guido'] == 4127
     assert dictionary_via_constructor['jack'] == 4098
+    
 
     # In addition, dict comprehensions can be used to create dictionaries from arbitrary key
     # and value expressions:
@@ -77,3 +78,33 @@ def test_dictionary():
     assert dictionary_for_string_keys['sape'] == 4139
     assert dictionary_for_string_keys['guido'] == 4127
     assert dictionary_for_string_keys['jack'] == 4098
+    
+def test_dictionary_get():
+    """Retrieve dictionary values using get()."""
+
+    student = {'name': 'Alex', 'grade': 90}
+
+    # Get the value of an existing key.
+    assert student.get('name') == 'Alex'
+
+    # A missing key returns None.
+    assert student.get('age') is None
+
+    # A default value can be provided for missing keys.
+    assert student.get('age', 18) == 18
+
+def test_dictionary_update():
+    """Update existing values and add new entries using update()."""
+
+    student = {'name': 'Alex', 'grade': 90}
+
+    # Update the value of an existing key.
+    student.update({'grade': 95})
+    assert student['grade'] == 95
+
+    # Add a new key-value pair.
+    student.update({'course': 'Python'})
+    assert student['course'] == 'Python'
+
+    # Verify that the original name remains unchanged.
+    assert student['name'] == 'Alex'
