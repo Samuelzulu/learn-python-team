@@ -337,6 +337,7 @@ def test_nested_list_comprehensions():
         (4, 8, 12),
     ]
     
+    # CONFLICT 1 TARGET: Student B modify below
     def test_list_comprehension_and_filtering():
         """Demonstrate list comprehension with conditional filtering."""
         numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
