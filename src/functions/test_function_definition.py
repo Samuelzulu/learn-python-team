@@ -121,3 +121,21 @@ def test_function_definition():
     greet_with_closure = compose_greet_func_with_closure('John')
 
     assert greet_with_closure() == 'Hello there, John!'
+
+def test_function_default_parameter():
+    """Use a default parameter value and return a result."""
+
+    def rectangle_area(width, height=1):
+        return width * height
+
+    # Both arguments are provided.
+    assert rectangle_area(4, 5) == 20
+
+    # The default value is used when height is omitted.
+    assert rectangle_area(7) == 7
+
+    # A function without a return statement returns None.
+    def do_nothing():
+        pass
+
+    assert do_nothing() is None
