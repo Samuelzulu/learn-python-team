@@ -121,3 +121,35 @@ def test_function_definition():
     greet_with_closure = compose_greet_func_with_closure('John')
 
     assert greet_with_closure() == 'Hello there, John!'
+
+def test_function_default_parameter():
+    """Use a default parameter value and return a result."""
+
+    def rectangle_area(width, height=1):
+        return width * height
+
+    # Both arguments are provided.
+    assert rectangle_area(4, 5) == 20
+
+    # The default value is used when height is omitted.
+    assert rectangle_area(7) == 7
+
+    # A function without a return statement returns None.
+    def do_nothing():
+        pass
+
+    assert do_nothing() is None
+
+def test_function_input_validation():
+    """Validate input inside a function before using it."""
+
+    def safe_divide(dividend, divisor):
+        if divisor == 0:
+            return None
+        return dividend / divisor
+
+    # A valid divisor returns the result.
+    assert safe_divide(10, 2) == 5
+
+    # A zero divisor is rejected and returns None.
+    assert safe_divide(10, 0) is None
