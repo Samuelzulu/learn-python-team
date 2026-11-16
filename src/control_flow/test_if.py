@@ -44,3 +44,23 @@ def test_nested_conditions():
         conclusion = 'Too young'
 
     assert conclusion == 'Allowed to drive'
+
+
+
+def test_multiple_elif_branches():
+    """Test multiple elif branches for grade classification."""
+    score = 85
+    conclusion = ''
+
+    if score >= 90:
+        conclusion = 'A'
+    elif score >= 80:
+        conclusion = 'B'
+    elif score >= 70:
+        conclusion = 'C'
+    elif score >= 60:
+        conclusion = 'D'
+    else:
+        conclusion = 'F'
+
+    assert conclusion == 'B'
