@@ -92,3 +92,19 @@ def test_dictionary_get():
 
     # A default value can be provided for missing keys.
     assert student.get('age', 18) == 18
+
+def test_dictionary_update():
+    """Update existing values and add new entries using update()."""
+
+    student = {'name': 'Alex', 'grade': 90}
+
+    # Update the value of an existing key.
+    student.update({'grade': 95})
+    assert student['grade'] == 95
+
+    # Add a new key-value pair.
+    student.update({'course': 'Python'})
+    assert student['course'] == 'Python'
+
+    # Verify that the original name remains unchanged.
+    assert student['name'] == 'Alex'
