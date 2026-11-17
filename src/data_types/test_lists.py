@@ -47,60 +47,78 @@ def test_list_type():
     # You can also add new items at the end of the list, by using
     # the append() method
     cubes.append(216)  # add the cube of 6
-    cubes.append(7 ** 3)  # and the cube of 7
+    cubes.append(7**3)  # and the cube of 7
     assert cubes == [1, 8, 27, 64, 125, 216, 343]
 
     # Assignment to slices is also possible, and this can even change the size
     # of the list or clear it entirely:
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
-    letters[2:5] = ['C', 'D', 'E']  # replace some values
-    assert letters == ['a', 'b', 'C', 'D', 'E', 'f', 'g']
+    letters = ["a", "b", "c", "d", "e", "f", "g"]
+    letters[2:5] = ["C", "D", "E"]  # replace some values
+    assert letters == ["a", "b", "C", "D", "E", "f", "g"]
     letters[2:5] = []  # now remove them
-    assert letters == ['a', 'b', 'f', 'g']
+    assert letters == ["a", "b", "f", "g"]
     # clear the list by replacing all the elements with an empty list
     letters[:] = []
     assert letters == []
 
     # The built-in function len() also applies to lists
-    letters = ['a', 'b', 'c', 'd']
+    letters = ["a", "b", "c", "d"]
     assert len(letters) == 4
 
     # It is possible to nest lists (create lists containing other lists),
     # for example:
-    list_of_chars = ['a', 'b', 'c']
+    list_of_chars = ["a", "b", "c"]
     list_of_numbers = [1, 2, 3]
     mixed_list = [list_of_chars, list_of_numbers]
-    assert mixed_list == [['a', 'b', 'c'], [1, 2, 3]]
-    assert mixed_list[0] == ['a', 'b', 'c']
-    assert mixed_list[0][1] == 'b'
+    assert mixed_list == [["a", "b", "c"], [1, 2, 3]]
+    assert mixed_list[0] == ["a", "b", "c"]
+    assert mixed_list[0][1] == "b"
 
 
 def test_list_methods():
     """Test list methods."""
 
-    fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+    fruits = ["orange", "apple", "pear", "banana", "kiwi", "apple", "banana"]
 
     # list.append(x)
     # Add an item to the end of the list.
     # Equivalent to a[len(a):] = [x].
-    fruits.append('grape')
-    assert fruits == ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'grape']
+    fruits.append("grape")
+    assert fruits == [
+        "orange",
+        "apple",
+        "pear",
+        "banana",
+        "kiwi",
+        "apple",
+        "banana",
+        "grape",
+    ]
 
     # list.remove(x)
     # Remove the first item from the list whose value is equal to x.
     # It raises a ValueError if there is no such item.
-    fruits.remove('grape')
-    assert fruits == ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+    fruits.remove("grape")
+    assert fruits == ["orange", "apple", "pear", "banana", "kiwi", "apple", "banana"]
 
     with pytest.raises(Exception):
-        fruits.remove('not existing element')
+        fruits.remove("not existing element")
 
     # list.insert(i, x)
     # Insert an item at a given position. The first argument is the index of the element
     # before which to insert, so a.insert(0, x) inserts at the front of the list,
     # and a.insert(len(a), x) is equivalent to a.append(x).
-    fruits.insert(0, 'grape')
-    assert fruits == ['grape', 'orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+    fruits.insert(0, "grape")
+    assert fruits == [
+        "grape",
+        "orange",
+        "apple",
+        "pear",
+        "banana",
+        "kiwi",
+        "apple",
+        "banana",
+    ]
 
     # list.index(x[, start[, end]])
     # Return zero-based index in the list of the first item whose value is equal to x.
@@ -108,36 +126,45 @@ def test_list_methods():
     # The optional arguments start and end are interpreted as in the slice notation and are used
     # to limit the search to a particular subsequence of the list. The returned index is computed
     # relative to the beginning of the full sequence rather than the start argument.
-    assert fruits.index('grape') == 0
-    assert fruits.index('orange') == 1
-    assert fruits.index('banana') == 4
-    assert fruits.index('banana', 5) == 7  # Find next banana starting a position 5
+    assert fruits.index("grape") == 0
+    assert fruits.index("orange") == 1
+    assert fruits.index("banana") == 4
+    assert fruits.index("banana", 5) == 7  # Find next banana starting a position 5
 
     with pytest.raises(Exception):
-        fruits.index('not existing element')
+        fruits.index("not existing element")
 
     # list.count(x)
     # Return the number of times x appears in the list.
-    assert fruits.count('tangerine') == 0
-    assert fruits.count('banana') == 2
+    assert fruits.count("tangerine") == 0
+    assert fruits.count("banana") == 2
 
     # list.copy()
     # Return a shallow copy of the list. Equivalent to a[:].
     fruits_copy = fruits.copy()
-    assert fruits_copy == ['grape', 'orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+    assert fruits_copy == [
+        "grape",
+        "orange",
+        "apple",
+        "pear",
+        "banana",
+        "kiwi",
+        "apple",
+        "banana",
+    ]
 
     # list.reverse()
     # Reverse the elements of the list in place.
     fruits_copy.reverse()
     assert fruits_copy == [
-        'banana',
-        'apple',
-        'kiwi',
-        'banana',
-        'pear',
-        'apple',
-        'orange',
-        'grape',
+        "banana",
+        "apple",
+        "kiwi",
+        "banana",
+        "pear",
+        "apple",
+        "orange",
+        "grape",
     ]
 
     # list.sort(key=None, reverse=False)
@@ -145,14 +172,14 @@ def test_list_methods():
     # see sorted() for their explanation).
     fruits_copy.sort()
     assert fruits_copy == [
-        'apple',
-        'apple',
-        'banana',
-        'banana',
-        'grape',
-        'kiwi',
-        'orange',
-        'pear',
+        "apple",
+        "apple",
+        "banana",
+        "banana",
+        "grape",
+        "kiwi",
+        "orange",
+        "pear",
     ]
 
     # list.pop([i])
@@ -160,9 +187,18 @@ def test_list_methods():
     # a.pop() removes and returns the last item in the list. (The square brackets around the i in
     # the method signature denote that the parameter is optional, not that you should type square
     # brackets at that position.)
-    assert fruits == ['grape', 'orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
-    assert fruits.pop() == 'banana'
-    assert fruits == ['grape', 'orange', 'apple', 'pear', 'banana', 'kiwi', 'apple']
+    assert fruits == [
+        "grape",
+        "orange",
+        "apple",
+        "pear",
+        "banana",
+        "kiwi",
+        "apple",
+        "banana",
+    ]
+    assert fruits.pop() == "banana"
+    assert fruits == ["grape", "orange", "apple", "pear", "banana", "kiwi", "apple"]
 
     # list.clear()
     # Remove all items from the list. Equivalent to del a[:].
@@ -214,17 +250,17 @@ def test_list_comprehensions():
     # For example, assume we want to create a list of squares, like:
     squares = []
     for number in range(10):
-        squares.append(number ** 2)
+        squares.append(number**2)
 
     assert squares == [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
     # Note that this creates (or overwrites) a variable named "number" that still exists after
     # the loop completes. We can calculate the list of squares without any side effects using:
-    squares = list(map(lambda x: x ** 2, range(10)))
+    squares = list(map(lambda x: x**2, range(10)))
     assert squares == [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
     # or, equivalently (which is more concise and readable):
-    squares = [x ** 2 for x in range(10)]
+    squares = [x**2 for x in range(10)]
     assert squares == [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
     # For example, this listcomp combines the elements of two lists if they are not equal.
@@ -262,12 +298,12 @@ def test_list_comprehensions():
     assert abs_vector == [4, 2, 0, 2, 4]
 
     # Call a method on each element.
-    fresh_fruit = ['  banana', '  loganberry ', 'passion fruit  ']
+    fresh_fruit = ["  banana", "  loganberry ", "passion fruit  "]
     clean_fresh_fruit = [weapon.strip() for weapon in fresh_fruit]
-    assert clean_fresh_fruit == ['banana', 'loganberry', 'passion fruit']
+    assert clean_fresh_fruit == ["banana", "loganberry", "passion fruit"]
 
     # Create a list of 2-tuples like (number, square).
-    square_tuples = [(x, x ** 2) for x in range(6)]
+    square_tuples = [(x, x**2) for x in range(6)]
     assert square_tuples == [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
 
     # Flatten a list using a listcomp with two 'for'.
@@ -336,3 +372,23 @@ def test_nested_list_comprehensions():
         (3, 7, 11),
         (4, 8, 12),
     ]
+
+    # CONFLICT 1 TARGET: Student B modify below
+    def test_list_comprehension_and_filtering():
+        """Demonstrate list comprehension with conditional filtering."""
+        numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        evens = [n for n in numbers if n % 2 == 0]
+        squares = [n**2 for n in evens]
+
+        assert evens == [2, 4, 6, 8, 10]
+        assert squares == [4, 16, 36, 64, 100]
+
+    def test_list_custom_sorting_and_slicing():
+        """Demonstrate sorting with a key function and step slicing."""
+        fruits = ["banana", "pie", "apple", "kiwi"]
+        fruits.sort(key=len)
+        assert fruits == ["pie", "kiwi", "apple", "banana"]
+
+        sample = list(range(10))
+        assert sample[::2] == [0, 2, 4, 6, 8]
+        assert sample[::-1] == [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
