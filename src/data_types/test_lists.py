@@ -392,3 +392,15 @@ def test_nested_list_comprehensions():
         sample = list(range(10))
         assert sample[::2] == [0, 2, 4, 6, 8]
         assert sample[::-1] == [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+    
+def test_list_pop_and_clear():
+    """Demonstrate removing elements using pop() and clear()."""
+
+    fruits = ["apple", "banana", "cherry"]
+
+    removed = fruits.pop()
+    assert removed == "cherry"
+    assert fruits == ["apple", "banana"]
+
+    fruits.clear()
+    assert fruits == []
