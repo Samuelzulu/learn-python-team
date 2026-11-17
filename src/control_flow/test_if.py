@@ -26,3 +26,41 @@ def test_if_statement():
         conclusion = 'Number bigger than or equal to one'
 
     assert conclusion == 'Number bigger than or equal to one'
+
+
+
+def test_nested_conditions():
+    """Test nested if statements."""
+    age = 20
+    has_license = True
+    conclusion = ''
+
+    if age >= 18:
+        if has_license:
+            conclusion = 'Allowed to drive'
+        else:
+            conclusion = 'License required'
+    else:
+        conclusion = 'Too young'
+
+    assert conclusion == 'Allowed to drive'
+
+
+
+def test_multiple_elif_branches():
+    """Test multiple elif branches for grade classification."""
+    score = 85
+    conclusion = ''
+
+    if score >= 90:
+        conclusion = 'A'
+    elif score >= 80:
+        conclusion = 'B'
+    elif score >= 70:
+        conclusion = 'C'
+    elif score >= 60:
+        conclusion = 'D'
+    else:
+        conclusion = 'F'
+
+    assert conclusion == 'B'
