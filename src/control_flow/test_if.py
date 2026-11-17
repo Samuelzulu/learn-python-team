@@ -24,9 +24,9 @@ def test_if_statement():
         conclusion = 'Number is greater than zero but less than one'
     else:
         conclusion = 'Number bigger than or equal to one'
-
-    assert conclusion == 'Number bigger than or equal to one'
-
+    if number > 10 and number < 20:
+        conclusion = 'Number is between ten and twenty'
+    assert conclusion == 'Number is between ten and twenty'
 
 
 def test_nested_conditions():
