@@ -31,7 +31,7 @@ def test_if_statement():
 
     assert conclusion == 'Number is between ten and one hundred'
 
-        conclusion = 'Number bigger than or equal to one'
+    conclusion = 'Number bigger than or equal to one'
     if number > 10 and number < 20:
         conclusion = 'Number is between ten and twenty'
     assert conclusion == 'Number is between ten and twenty'
