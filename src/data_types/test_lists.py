@@ -392,3 +392,11 @@ def test_nested_list_comprehensions():
         sample = list(range(10))
         assert sample[::2] == [0, 2, 4, 6, 8]
         assert sample[::-1] == [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+    
+    def test_list_reverse_and_copy():
+        """Demonstrate in-place reverse() and shallow copy()."""
+        letters = ["a", "b", "c"]
+        copied = letters.copy()
+        letters.reverse()
+        assert letters == ["c", "b", "a"]
+        assert copied == ["a", "b", "c"]
